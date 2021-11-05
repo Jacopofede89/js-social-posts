@@ -1,6 +1,21 @@
+/*
+Ricreiamo un feed social aggiungendo al layout di base fornito, il nostro javascript in cui:
+- Creiamo il nostro array di oggetti che rappresentano ciascun post.
+Ogni post dovrà avere le informazioni necessarie per stampare la relativa card:
+nome autore,
+foto profilo,
+data,
+testo del post,
+immagine (non tutti i post devono avere una immagine) [quindi gestisco il caso],
+numero di likes.
+- Prendendo come riferimento il layout di esempio presente nell’html, stampiamo i post del nostro feed.
+- Rendiamo il tasto “Mi Piace” cliccabile con incremento del counter dei likes.
+*/
+
+
 let postCont = document.getElementById('container');
 
-
+// array di oggetti in cui ogni oggetto contiene un singolo post
 var post = [
     {
         'name' : 'Phil Mangione',
@@ -99,7 +114,7 @@ stampa();
 let buttons = document.querySelectorAll(".js-like-button");
 let numeroLike = document.querySelectorAll(".js-like-counter");
 
-for(let i=0; i<buttons.length; i++){
+for(let i=0; i < buttons.length; i++){
     buttons[i].addEventListener('click', function() {
         const index = this.getAttribute('data-postid');
         post[index].like = parseInt(post[index].like) +1;
